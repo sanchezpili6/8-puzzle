@@ -132,6 +132,8 @@ def get_distance_to_desire_state(current_state, desire_state):
         diff_in_row = compare_rows(row_state, row_desire)
         diff += diff_in_row
 
+    g = len(visited_nodes)
+    diff = diff + g
     return diff
 
 
@@ -163,7 +165,7 @@ def play(current_state, desired_state, new_board):
     while current_state != desired_state:
         blank = get_blank_tile(current_state)
         move_tile(current_state, blank)
-        print(current_state)
+    print(current_state)
 
 
 print(get_distance_to_desire_state(start_state, goal_state))
